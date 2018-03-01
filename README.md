@@ -1,8 +1,8 @@
-###Escuela Colombiana de Ingeniería
-###Construcción de Software - COSW
+### Escuela Colombiana de Ingeniería
+### Construcción de Software - COSW
 
 
-####Frameworks ORM-Frameworks de persistencia-Spring Data
+#### Frameworks ORM-Frameworks de persistencia-Spring Data
 
 En este ejercicio se va a habilitar la capa de persistencia de un API rest, el cual, aunque funciona, sólo reporta datos estáticos generados en la capa lógica. Al finalizar este ejercicio, se espera tener:
 
@@ -41,16 +41,17 @@ Realice lo siguiente, teniendo en cuenta la conveción de paquetes del diagrama 
 
 2. Cree la interfaz 'PatientsRepository', la cual hereda de la interfaz CrudRepository, y que asocie a los tipos genéricos Paciente y PacienteID (el tipo del repositorio y el tipo de su llave primaria respectivamente).
 
+	
 	```java
-public interface PatientsRepository extends JpaRepository<Paciente, PacienteId>
-```
+	public interface PatientsRepository extends JpaRepository<Paciente, PacienteId>
+	```
 
 3. Agregue las anotaciones a la clase que tiene la anotación @SpringBootApplication: @EnableJpaRepositories y @EntityScan. En la primera, debe agregar como valor el paquete en el cual agregó la interfaz 'repositorio' creada anteriormente. En la segunda, agregue como valor el paquete donde están las clases de tipo entidad (@Entity). Por ejemplo:
 
 	```java
-@EnableJpaRepositories("edu.eci.cosw.paquete1.paquete2.paquete3")
-@EntityScan("edu.eci.cosw.jpa.paquete1.paquete2.paquete3")
-```
+	@EnableJpaRepositories("edu.eci.cosw.paquete1.paquete2.paquete3")
+	@EntityScan("edu.eci.cosw.jpa.paquete1.paquete2.paquete3")
+	```
 
 
 
@@ -76,7 +77,7 @@ public interface PatientsRepository extends JpaRepository<Paciente, PacienteId>
 	spring.jpa.show-sql = true
 	logging.level.org.hibernate.SQL=DEBUG
 	logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
-```
+	```
 
 	**application-test.properties**
 
@@ -128,7 +129,7 @@ public interface PatientsRepository extends JpaRepository<Paciente, PacienteId>
 
 	```
 	mvn test
-```
+	```
 
 
 11. Finalmente, configure su aplicación para que pueda generar documentación de sí misma, incluyendo -entre otros-: cubrimiento de pruebas y análisis estático de código. Para hacer esto, agregue el siguiente elemento en el pom.xml, como elemento hijo de <project>:
@@ -161,6 +162,6 @@ public interface PatientsRepository extends JpaRepository<Paciente, PacienteId>
 
 	```
 	mvn site
-```
+	```
 	Y consulte la página generada en el directorio  __target/site__
 
